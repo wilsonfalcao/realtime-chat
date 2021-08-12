@@ -1,0 +1,16 @@
+{
+  "displayName": "chat-realtime",
+  "expo": {
+    "name": "chat-realtime",
+    "slug": "chat-realtime",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "android": {
+    "package": "com.mypackage.coolapp",
+    "googleServicesFile": "./google-services.json"
+  },
+  "name": "chat-realtime"
+}
