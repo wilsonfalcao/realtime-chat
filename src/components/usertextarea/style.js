@@ -6,6 +6,8 @@ export const styles = StyleSheet.create({
       width:"100%",
       backgroundColor:"rgb(0,0,0)",
       paddingVertical:10,
+      position:"absolute",
+      bottom:0,
     },
     areaInputDirectionPadding:{
       flexDirection:"row",

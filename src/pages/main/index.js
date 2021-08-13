@@ -6,6 +6,7 @@ import { useState } from "react";
 //Estilos e componentes
 import {styles} from "./style";
 import UserTextArea from "../../components/usertextarea/UserTextArea";
+import MessageArea from "../../components/messagearea/MessageArea";
 
 //Camada de Serviços
 import messagingOp from "../../model/services/messagingOp";
@@ -23,6 +24,7 @@ export default function Main({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.marginTop30}>
+        <MessageArea/>
         <UserTextArea />
       </View>
     </View>
