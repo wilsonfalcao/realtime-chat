@@ -1,30 +1,18 @@
 //Componentes, hooks e manipularadores react
-import React,{useEffect} from "react";
-import {Text, View } from 'react-native';
-import { useState } from "react";
+import React from "react";
+import { View } from 'react-native';
 
 //Estilos e componentes
 import {styles} from "./style";
 import UserTextArea from "../../components/usertextarea/UserTextArea";
 import MessageArea from "../../components/messagearea/MessageArea";
 
-//Camada de Serviços
-import messagingOp from "../../model/services/messagingOp";
-
 export default function Main({navigation}) {
-
-  const [getMessaginContents] = messagingOp();
-  const [message,setMessage] = useState(null);
-
-  useEffect(()=>{
-      getMessaginContents(setMessage);
-    },[]
-  );
 
   return (
     <View style={styles.container}>
       <View style={styles.marginTop30}>
-        <MessageArea/>
+        <MessageArea />
         <UserTextArea />
       </View>
     </View>
