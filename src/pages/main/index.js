@@ -7,13 +7,19 @@ import {styles} from "./style";
 import UserTextArea from "../../components/usertextarea/UserTextArea";
 import MessageArea from "../../components/messagearea/MessageArea";
 
-export default function Main({navigation}) {
+export default function Main({navigation,route}) {
+
+  const {userData} = route.params;
 
   return (
     <View style={styles.container}>
       <View style={styles.marginTop30}>
-        <MessageArea />
-        <UserTextArea />
+        <View style={styles.styleMessageArea}>
+          <MessageArea userInform={userData} />
+        </View>
+        <View style={styles.styleSendArea}>
+          <UserTextArea userInform={userData} />
+        </View>
       </View>
     </View>
   );

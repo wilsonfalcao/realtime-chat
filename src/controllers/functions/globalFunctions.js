@@ -43,7 +43,7 @@ async function PacketMessage (MessagePacked) {
     return MessagePacked;
 }
 
-
+global.initialDate = null; 
 
 export{
 

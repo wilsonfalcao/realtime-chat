@@ -3,7 +3,8 @@ import {StyleSheet,Dimensions} from "react-native";
 
 export const styles = StyleSheet.create({
     areaMessage: {
-      
+      width:"100%",
+      zIndex:1,
     },
     imageCircle40:{
       width:50,
@@ -27,7 +28,6 @@ export const styles = StyleSheet.create({
     },
     flatListContainer:{
       width:"100%",
-      height:750,
     },
 });
   

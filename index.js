@@ -1,6 +1,11 @@
 import 'react-native-gesture-handler';
 import { registerRootComponent } from 'expo';
 
+//Funções e variáveis globais (ainda sem usar redux)
+import "./src/controllers/functions/globalFunctions";
+
+global.initialDate=Date.now();
+
 import App from './App';
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);

@@ -87,9 +87,9 @@ const ViewToMessage = ({item}) =>{
 }
 
 
-export const FlatListMessage = (item) => {
+export const FlatListMessage = (item,userInform) => {
 
-    if(item.from != "wilson.falcao1@gmail.com")
+    if(item.from == userInform.email)
         return(
             <ViewToMessage item={item} />
         );

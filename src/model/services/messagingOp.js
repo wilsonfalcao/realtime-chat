@@ -7,7 +7,7 @@ export default() => {
 
     const getMessaginContents = async (CallBack) => {
 
-        firebase.db.collection("message").orderBy("date","asc").onSnapshot((Query)=>{
+        firebase.db.collection("message").orderBy("date","desc").where("date",">=",global.initialDate).onSnapshot((Query)=>{
             
             let messageBody = [];
             
@@ -30,6 +30,8 @@ export default() => {
 };
 
 const sendMessageToServer = async (item) =>{
+
+    console.log(item);
 
     let _MessageBody = await PacketMessage(item);
     

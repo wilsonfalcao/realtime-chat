@@ -1,5 +1,5 @@
-import React, {useState,useEffect} from "react";
-import {View,Text, FlatList,Image} from "react-native";
+import React, {useState,useEffect, useRef} from "react";
+import {View,FlatList,} from "react-native";
 
 //Estilos e Componentes 
 import {styles} from "./style";
@@ -9,10 +9,11 @@ import {FlatListMessage} from "../flatListAreaMessage/FlatListMessage";
 import messagingOp from "../../model/services/messagingOp";
 
 
-export default function MessageArea(){
+export default function MessageArea(props){
 
     const [getMessaginContents] = messagingOp();
     const [message,setMessage] = useState(null);
+    const {userInform} = props;
 
     useEffect(()=>{
         getMessaginContents(setMessage);
@@ -22,9 +23,11 @@ export default function MessageArea(){
         <View style={styles.areaMessage}>
             <FlatList
                 data={message}
-                renderItem={({item})=>(FlatListMessage(item))}
+                inverted={-1}
+                renderItem={({item})=>(FlatListMessage(item,userInform))}
                 contentContainerStyle={styles.flatListContainer}
                 keyExtractor={(_,index)=>index.toString()}
+                style={{marginBottom:70}}
             />
         </View>
     );
