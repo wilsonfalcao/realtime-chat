@@ -1,4 +1,6 @@
+//Componentes e dependências do react
 import React, {useState,useRef} from "react";
+import {useSelector} from "react-redux";
 
 //Estilos é componentes
 import {styles} from "./style";
@@ -9,11 +11,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import {sendMessageToServer} from "../../model/services/messagingOp";
 
 
-export default function UserTextArea(props){
+export default function UserTextArea(){
 
     const [text, setText] = useState(null);
     const visibleIconButton = useRef(false);
-    const {userInform} = props;
+    const userInform =  useSelector(state => state.UseRedux);
 
     const messageCreate = (messageBody) =>{
         return {
@@ -21,7 +23,7 @@ export default function UserTextArea(props){
             from:userInform.email,
             date:Date.now(),
             body:messageBody,
-            profile:userInform.photoURL,
+            profile:userInform.photoUrl,
             msgid:0,
             state:false,
         };
@@ -32,7 +34,7 @@ export default function UserTextArea(props){
             <View style={styles.areaInputDirectionPadding}>
                 <View style={styles.imageCircle40}>
                     <Image style={styles.imageRadius50}
-                        source={{uri:userInform.photoURL,}}
+                        source={{uri:userInform.photoUrl,}}
                     />
                 </View>
                 <View style={styles.areaInputStyles}>
@@ -72,7 +74,7 @@ export default function UserTextArea(props){
                         let status  = await sendMessageToServer(
                                             messageCreate(text)
                                             );
-                        if(status) setText("");
+                        status ? setText("") : console.log(status);
                     }} 
                     ref={visibleIconButton} style={[styles.iconCircle,styles.displayNone]}>
                         <Icon name={"send"} size={19} color={"rgb(255,255,255)"}/>

@@ -1,8 +1,10 @@
-import React,{useState} from "react";
+//Componentes e Libs
+import React from "react";
 import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {useSelector} from "react-redux";
 
-//Estilos e componentes
+//Estilos e componentesx
 import {styles} from "./style";
 
 //Camada de serviço
@@ -11,11 +13,9 @@ import {expoAuthenticationGoogle} from "../../model/services/authRequest";
 export default function Login ({navigation}){
     
     const googleAutentication = expoAuthenticationGoogle();
-    const [userGoogle,setUserGoogle] = useState(null);
+    const userGoogle  = useSelector(state => state.UseRedux);
 
-    googleAutentication.listeningLogIn(user=>{
-        setUserGoogle(user);
-    });
+    googleAutentication.listeningLogIn();
 
     return(
 
@@ -31,11 +31,7 @@ export default function Login ({navigation}){
                         name={"whatsapp"} 
                         backgroundColor={"green"}
                         onPress={()=>{
-                            navigation.navigate("main",{userData:{
-                                    email:userGoogle.email,
-                                    photoURL:userGoogle.photoURL
-                                }
-                            });
+                            navigation.navigate("main");
                         }}
                         style={{justifyContent:"center",alignItems:"center"}}
                     >
@@ -43,8 +39,8 @@ export default function Login ({navigation}){
                     </Icon.Button>
 
                     <Icon.Button
-                        name={"android"} 
-                        onPress={ async ()=>{
+                        name={"android"}
+                        onPress={async ()=>{
                             await googleAutentication.logOut();
                         }}
                         backgroundColor={"red"}
@@ -59,7 +55,9 @@ export default function Login ({navigation}){
 
                 <Icon.Button name="google" backgroundColor="rgb(243,114,0)"
                     onPress={ async ()=>{
-                    await googleAutentication.signIn();
+                        
+                        await googleAutentication.signIn();
+                        
                     }}
                 >
                     <Text style={{fontSize: 15 }}>

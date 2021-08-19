@@ -43,6 +43,9 @@ async function PacketMessage (MessagePacked) {
     return MessagePacked;
 }
 
+/*Variável global de data. Quando o APP inicializa,
+o mesmo recebe uma data em timestamp para filtrar mensagens atuais.
+*/
 global.initialDate = null; 
 
 export{

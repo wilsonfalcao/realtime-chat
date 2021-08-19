@@ -1,13 +1,17 @@
 //Estrutura do Banco de dados NonSQL
 import firebase from "../firebase/index";
+import {useDispatch} from "react-redux";
+
 
 import {PacketMessage,CheckDataSendMessage} from "../../controllers/functions/globalFunctions";
 
 export default() => {
 
-    const getMessaginContents = async (CallBack) => {
+    const dispatch = useDispatch();
 
-        firebase.db.collection("message").orderBy("date","desc").where("date",">=",global.initialDate).onSnapshot((Query)=>{
+    const getMessaginContents = async () => {
+
+        await firebase.db.collection("message").orderBy("date","desc").where("date",">=",global.initialDate).onSnapshot((Query)=>{
             
             let messageBody = [];
             
@@ -18,7 +22,11 @@ export default() => {
                   ...doc.data(),
                 });
             });
-            CallBack(messageBody);
+            
+            dispatch({
+                type:"@message/GETMESSAGE",
+                message:messageBody
+            });
         });
     }
 
@@ -31,20 +39,18 @@ export default() => {
 
 const sendMessageToServer = async (item) =>{
 
-    console.log(item);
-
     let _MessageBody = await PacketMessage(item);
     
     let status = false;
-    if(CheckDataSendMessage(_MessageBody))
+    if(CheckDataSendMessage(_MessageBody)){
+
         status = true;
-        await firebase
-            .db
-            .collection("message")
-            .add(_MessageBody)
-            .catch((error)=>{
+        await firebase.db.collection("message")
+            .add(_MessageBody).catch((error)=>{
                 status = error;
             });
+    }
+        
     return status;
 }
 
