@@ -10,7 +10,7 @@ Esse projeto tem o intuito de prover exemplos de códigos com uso de tecnologias
 ### Divisão do projeto
 
 - [Projeto com uso do Firestore (sem uso do Redux)](https://github.com/wilsonfalcao/realtime-chat/tree/redux)
-- [Projeto com uso do Firestore e Redux]()https://github.com/wilsonfalcao/realtime-chat/tree/firebase
+- [Projeto com uso do Firestore e Redux](https://github.com/wilsonfalcao/realtime-chat/tree/firebase)
 - [Projeto consumindo uma API React WebSocket.IO](https://github.com/wilsonfalcao/realtime-chat/tree/main)
 
 ## Bibliotecas utilizadas na criação de projetos
