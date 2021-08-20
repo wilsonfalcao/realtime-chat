@@ -7,6 +7,12 @@ Esse projeto tem o intuito de prover exemplos de códigos com uso de tecnologias
 - Refatorando código e implementando Redux na manipulação de estados do usuário e mensagem de forma global.
 - Implementação de API React com WebSocket.IO e requisições bidirecionais.
 
+### Divisão do projeto
+
+- [Projeto com uso do Firestore (sem uso do Redux)](https://github.com/wilsonfalcao/realtime-chat/tree/redux)
+- [Projeto com uso do Firestore e Redux]()https://github.com/wilsonfalcao/realtime-chat/tree/firebase
+- [Projeto consumindo uma API React WebSocket.IO](https://github.com/wilsonfalcao/realtime-chat/tree/main)
+
 ## Bibliotecas utilizadas na criação de projetos
 
 Para utilização ou conhecimento de cada recurso utilizado neste projeto poderá ser obtido mais detalhes pelo site abaixo.
@@ -35,6 +41,7 @@ Para o entendimento do projeto segue o esquema de pastas de todo o projeto e sua
 -- **controllers** (funções de manipulação de atributos de métodos e estados da aplicação)
 -- **pages** (camada de lógica visual da aplicação)
 -- **store** (árvore de estado da aplicação utilizando Redux)
+
 
 ### Uso do Redux
 
