@@ -54,3 +54,7 @@ Abra a pasta desse projeto e execute o comando abaixo:
 ```sh
 npm install
 ```
+
+## Screenshots
+
+![Image 01](https://raw.githubusercontent.com/wilsonfalcao/realtime-chat-socket/main/fotos/screenshot01.jpg)
